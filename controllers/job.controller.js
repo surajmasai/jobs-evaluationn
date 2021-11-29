@@ -35,11 +35,5 @@ router.get("/workFromHome", async (req, res) => {
     return res.status(200).send({ job });
 })
 
-// get all jobs as per their rating
-router.get("/accordingToRating", async (req, res) => {
-    const job = await Job.find().sort({ rating: "asc" }).populate("skills").populate("company").lean().exec();
-
-    return res.status(200).send({ job });
-})
 
 module.exports = router
